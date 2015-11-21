@@ -58,9 +58,9 @@ public class BatchRenderer implements GLSurfaceView.Renderer {
 //		Log.i("PTAM", "draw");
 //		glClear(GL_COLOR_BUFFER_BIT);
 //		
-//		for (GLRenderer r : _list) {
-//			r.draw();
-//		}
+		for (GLRenderer r : _list) {
+			r.draw();
+		}
 //		
 //		// cancel color otherwise it will show on texture
 //		glColor4f(1,1,1,1);

@@ -55,7 +55,7 @@ template<int Size, class Precision> class StackOrHeap<Size,Precision,0>
 public:
 	StackOrHeap()
 	{
-		//debug_initialize(my_data, Size);
+		debug_initialize(my_data, Size);
 	}
 	Precision my_data[Size];
 };
@@ -65,7 +65,7 @@ template<int Size> class StackOrHeap<Size,double,0>
 public:
 	StackOrHeap()
 	{
-		//debug_initialize(my_data, Size);
+		debug_initialize(my_data, Size);
 	}
 	double my_data[Size] TOON_ALIGN8 ;
 };
@@ -167,14 +167,14 @@ template<class Precision> struct VectorAlloc<Dynamic, Precision> {
 	VectorAlloc(int s)
 	:my_data(new Precision[s]), my_size(s)
 	{ 
-		//debug_initialize(my_data, my_size);
+		debug_initialize(my_data, my_size);
 	}
 
 	template <class Op>
 	VectorAlloc(const Operator<Op>& op) 
 	: my_data(new Precision[op.size()]), my_size(op.size()) 
 	{
-		//debug_initialize(my_data, my_size);
+		debug_initialize(my_data, my_size);
 	}
 
 	int size() const {
@@ -222,7 +222,7 @@ template<class Precision> struct VectorAlloc<Resizable, Precision> {
 		VectorAlloc(int s)
 		:numbers(s)
 		{ 
-			//debug_initialize(data(), size());
+			debug_initialize(data(), size());
 		}
 
 		template <class Op>
@@ -484,7 +484,7 @@ template<int R, int C, class Precision> struct MatrixAlloc<R, C, Precision, fals
 	 ColSizeHolder<C>(c),
 	 my_data(new Precision[num_rows()*num_cols()]) 
 	{
-		//debug_initialize(my_data, num_rows()*num_cols());
+		debug_initialize(my_data, num_rows()*num_cols());
 	}
 
 	template <class Op>	MatrixAlloc(const Operator<Op>& op)
@@ -492,7 +492,7 @@ template<int R, int C, class Precision> struct MatrixAlloc<R, C, Precision, fals
 		 ColSizeHolder<C>(op),
 		 my_data(new Precision[num_rows()*num_cols()])
 	{
-		//debug_initialize(my_data, num_rows()*num_cols());
+		debug_initialize(my_data, num_rows()*num_cols());
 	}
 
 	~MatrixAlloc() {

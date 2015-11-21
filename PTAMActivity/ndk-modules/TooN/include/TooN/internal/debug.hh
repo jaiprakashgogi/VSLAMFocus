@@ -1,3 +1,6 @@
+#ifndef _DEBUG_HH_
+#define _DEBUG_HH_
+
 namespace TooN {
 
 namespace Internal
@@ -106,3 +109,5 @@ namespace Internal
 }
 
 }
+
+#endif /*_DEBUG_HH_*/

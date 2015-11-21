@@ -46,8 +46,8 @@ public class CaptureViewer extends GLSurfaceView implements
 		load_beep(context);
 
 		_renderer = new BatchRenderer();
-//		_renderer.add(new CameraRenderer(videosource));
-//		_renderer.add(new CaptureRenderer(videosource, this));
+		_renderer.add(new CameraRenderer(videosource));
+		_renderer.add(new CaptureRenderer(videosource, this));
 		setRenderer(_renderer);
 
 		_buttonmap = new HashMap<State, String>();

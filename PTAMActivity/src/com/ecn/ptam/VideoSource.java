@@ -27,16 +27,18 @@ public class VideoSource implements Camera.PreviewCallback {
 		Parameters newParam = mCamera.getParameters();
 		newParam.setPreviewSize(640, 480);
 		newParam.setPreviewFormat(ImageFormat.YV12);
-		newParam.setFlashMode(Parameters.FLASH_MODE_TORCH);
+		//newParam.setFlashMode(Parameters.FLASH_MODE_TORCH);
 		newParam.setFocusMode(Parameters.FOCUS_MODE_INFINITY);
 		
 		mCamera.setParameters(newParam);
 		mCamera.setPreviewCallback(this);
+		Log.i("JAI","VideoSource");
 	}
 	
 	@Override
 	public void onPreviewFrame(byte[] data, Camera camera) {
 		_frame = data;
+		Log.i("JAI","onPreviewFrame");
 	}
 	
 	public void set_texture(SurfaceTexture tex) {
@@ -74,6 +76,7 @@ public class VideoSource implements Camera.PreviewCallback {
 	}
 	
 	public byte[] getFrame() {
+		Log.i("JAI","getFrame");
 		return _frame;
 	}
 }
