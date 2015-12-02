@@ -1,5 +1,5 @@
-imagePath1='../dataset/temple/im1.png';
-imagePath2='../dataset/temple/im2.png';
+imagePath1='../dataset/templeFull/temple0001.png';
+imagePath2='../dataset/templeFull/temple0002.png';
 I1 = imread(imagePath1);
 I2 = imread(imagePath2);
 %imshowpair(I1,I2,'montage');
