@@ -7,7 +7,7 @@ function [R t M]=getCameraPose(matchedPoints1,matchedPoints2,cameraParams,m)
 %fMatrix=fMatrix';
 %inlierPoints1 = matchedPoints1(epipolarInliers, :);
 %inlierPoints2 = matchedPoints2(epipolarInliers, :);
-fMatrix=ransacF(matchedPoints1,matchedPoints2,m,100)
+fMatrix=ransacF(matchedPoints1,matchedPoints2,m,100);
 inlierPoints1 = matchedPoints1;
 inlierPoints2 = matchedPoints2;
 %calculate 4 M's and select the proper one

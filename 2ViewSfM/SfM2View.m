@@ -3,7 +3,8 @@ imagePath2='../dataset/temple/im2.png';
 I1 = imread(imagePath1);
 I2 = imread(imagePath2);
 %imshowpair(I1,I2,'montage');
-load('../dataset/cameraParams_freiburg1.mat');
+%load('../dataset/cameraParams_freiburg1.mat');
+load('../dataset/temple/cameraParams_temple.mat');
 [matchedPoints1, matchedPoints2]=featureMatch2View(I1,I2,0.1);
 [R,t,M]=getCameraPose(matchedPoints1,matchedPoints2,cameraParams,max(size(I1)));
 
