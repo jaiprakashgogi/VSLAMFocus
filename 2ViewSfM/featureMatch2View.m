@@ -12,8 +12,8 @@ matchedPoints1 = imagePoints1(validIdx, :);
 matchedPoints2 = imagePoints2(validIdx, :);
 
 % Visualize correspondences
-%figure
-%showMatchedFeatures(I1, I2, matchedPoints1, matchedPoints2);
-%title('Tracked Features');
+figure
+showMatchedFeatures(I1, I2, matchedPoints1, matchedPoints2);
+title('Tracked Features'); hold on;
 end
 

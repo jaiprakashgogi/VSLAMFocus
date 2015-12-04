@@ -10,6 +10,7 @@ function [R t M]=getCameraPose(matchedPoints1,matchedPoints2,cameraParams,m)
 fMatrix=ransacF(matchedPoints1,matchedPoints2,m,100);
 inlierPoints1 = matchedPoints1;
 inlierPoints2 = matchedPoints2;
+fMatrix=refineF(fMatrix,inlierPoints1,inlierPoints2);
 %calculate 4 M's and select the proper one
 E=cameraParams.IntrinsicMatrix*fMatrix*cameraParams.IntrinsicMatrix';
 M2s=camera2(E);

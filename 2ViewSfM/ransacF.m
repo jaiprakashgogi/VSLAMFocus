@@ -6,7 +6,8 @@ function [ F ] = ransacF( pts1, pts2, M,numItr )
 
 thr_error=10;
 numPointPair=size(pts1,1);
-thr_numInlier=numPointPair/4;
+thr_numInlier=numPointPair/20;
+%thr_numInlier=20;
 bestError=30;
 for i=1:numItr
     pointPairIdx=randi(numPointPair,7,1);
