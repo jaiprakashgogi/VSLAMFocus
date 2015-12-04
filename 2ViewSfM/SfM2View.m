@@ -1,11 +1,12 @@
-imagePath1='../dataset/templeFull/temple0001.png';
-imagePath2='../dataset/templeFull/temple0002.png';
+imagePath1='../dataset/set1/im3.jpg';
+imagePath2='../dataset/set1/im4.jpg';
 I1 = imread(imagePath1);
 I2 = imread(imagePath2);
 %imshowpair(I1,I2,'montage');
 %load('../dataset/cameraParams_freiburg1.mat');
-load('../dataset/temple/cameraParams_temple.mat');
-[matchedPoints1, matchedPoints2]=featureMatch2View(I1,I2,0.1);
+%load('../dataset/temple/cameraParams_temple.mat');
+load('../dataset/set1/cameraParams_frommv.mat');
+[matchedPoints1, matchedPoints2]=featureMatch2View(I1,I2,0.005);
 [R,t,M]=getCameraPose(matchedPoints1,matchedPoints2,cameraParams,max(size(I1)));
 
 
@@ -27,6 +28,7 @@ points3D = triangulate(camMatrix1,matchedPoints1, camMatrix2,matchedPoints2);
 %points3D=points3D./repmat([xmean,ymean,zmean],[size(points3D,1),1]);
 
 %visualize 3-D points
+figure;
 numPixels = size(I1, 1) * size(I1, 2);
 allColors = reshape(I1, [numPixels, 3]);
 colorIdx = sub2ind([size(I1, 1), size(I1, 2)], round(matchedPoints1(:,2)), ...
