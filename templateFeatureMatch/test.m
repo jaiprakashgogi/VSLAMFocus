@@ -1,0 +1,11 @@
+run('../vlgWindows/vlfeat/toolbox/vl_setup');
+load('../dataset/templateFeatureMatch/siftDescriptor1.mat');
+load('../dataset/templateFeatureMatch/siftDescriptor2.mat');
+imagePath='../dataset/templateFeatureMatch/testImg2.JPG';
+Img=imread(imagePath);
+[x1,y1]=matchTemplate(siftDescriptor1,Img);
+[x2,y2]=matchTemplate(siftDescriptor2,Img);
+figure;
+imshow(Img);hold on;
+scatter(x1,y1,'y','filled');
+scatter(x2,y2,'g','filled');
