@@ -1,11 +1,13 @@
-imagePath1='../dataset/set1/im3.jpg';
-imagePath2='../dataset/set1/im4.jpg';
+% cameraCalibrator
+%%
+
+imagePath1='../dataset/set2/20151204_200009.jpg';
+imagePath2='../dataset/set2/20151204_200012.jpg';
 I1 = imread(imagePath1);
 I2 = imread(imagePath2);
-%imshowpair(I1,I2,'montage');
-%load('../dataset/cameraParams_freiburg1.mat');
-%load('../dataset/temple/cameraParams_temple.mat');
-load('../dataset/set1/cameraParams_frommv.mat');
+%%
+load('calibrationSession.mat');
+cameraParams = calibrationSession.CameraParameters;
 [matchedPoints1, matchedPoints2]=featureMatch2View(I1,I2,0.005);
 [R,t,M]=getCameraPose(matchedPoints1,matchedPoints2,cameraParams,max(size(I1)));
 
@@ -45,3 +47,29 @@ grid on
 plotCamera('Location', t, 'Orientation', R, 'Size', cameraSize, ...
     'Color', 'b', 'Label', '2', 'Opacity', 0);
 
+%%
+
+addpath('../matlab/mex');
+addpath('../matlab');
+im1 = imresize(I1,0.5,'bicubic');
+im2 = imresize(I2,0.5,'bicubic');
+alpha = 0.012;
+ratio = 0.75;
+minWidth = 20;
+nOuterFPIterations = 7;
+nInnerFPIterations = 1;
+nSORIterations = 30;
+
+para = [alpha,ratio,minWidth,nOuterFPIterations,nInnerFPIterations,nSORIterations];
+tic;
+[vx,vy,warpI2] = Coarse2FineTwoFrames(im1,im2,para);
+toc
+
+figure;imshow(im1);figure;imshow(warpI2);
+
+clear flow;
+flow(:,:,1) = vx;
+flow(:,:,2) = vy;
+imflow = flowToColor(flow);
+
+figure;imshow(imflow);

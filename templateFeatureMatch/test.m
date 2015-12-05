@@ -1,10 +1,10 @@
-run('../vlgWindows/vlfeat/toolbox/vl_setup');
-load('../dataset/templateFeatureMatch/siftDescriptor1.mat');
-load('../dataset/templateFeatureMatch/siftDescriptor2.mat');
-imagePath='../dataset/templateFeatureMatch/testImg2.JPG';
+run('../vlg/vlfeat/toolbox/vl_setup');
+load('siftDescriptor1.mat');
+load('siftDescriptor2.mat');
+imagePath='../vlg/VSLAMFocus/im4.jpg';
 Img=imread(imagePath);
-[x1,y1]=matchTemplate(siftDescriptor1,Img);
-[x2,y2]=matchTemplate(siftDescriptor2,Img);
+[x1,y1]=matchTemplate(d1,Img);
+[x2,y2]=matchTemplate(d2,Img);
 figure;
 imshow(Img);hold on;
 scatter(x1,y1,'y','filled');

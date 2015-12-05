@@ -1,0 +1,20 @@
+function [ xx, yy ] = getTemplateLocation(filelist)
+xx = [];
+yy = [];
+
+load('siftDescriptor1.mat');
+load('siftDescriptor2.mat');
+% figure;
+% imshow(Img);hold on;
+% scatter(x1,y1,'y','filled');
+% scatter(x2,y2,'g','filled');
+for i = 1:length(filelist)
+    Img = imread(filelist(i).name);
+    [x1,y1]=matchTemplate(d1,Img);
+    [x2,y2]=matchTemplate(d2,Img);
+    xx = [];
+end
+
+
+end
+
