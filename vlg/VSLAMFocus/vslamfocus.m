@@ -27,4 +27,4 @@ K1 = calibrationSession.CameraParameters.IntrinsicMatrix';
 figure, display_points(X, 'pixelsize', 5, 'color', color(index,:)),
 display_cameras(T, Om, K, 'frustum_scale', 0.1), box on, view(3);
 
-save('3Dview.mat');
+% save('3Dview.mat');
