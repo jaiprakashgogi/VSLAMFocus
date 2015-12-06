@@ -1,3 +1,0 @@
-set solib-search-path ./obj/local/mips
-source /home/jprakash/jai/android/android-ndk-r10e/prebuilt/common/gdb/common.setup
-directory /home/jprakash/jai/android/android-ndk-r10e/platforms/android-19/arch-mips/usr/include jni /home/jprakash/jai/android/android-ndk-r10e/sources/cxx-stl/system
