@@ -20,13 +20,16 @@ index = vis(:,1) & vis(:,2); % take features that are seen by first and second v
 good_view_index = sum(vis(index,:)) > 30;
 %%
 i = 1
-imshow(imread(filelist(i).name));
+im = imread(filelist(i).name);
+RGB = insertText(im,[mean(featx(end-1:end,i)) mean(featy(end-1:end,i))],'112 mm', 'FontSize',24);
+figure, imshow(RGB)
 hold on;
-scatter(featx(:,i), featy(:,i), 'g*')
+h1 = scatter(featx(:,i), featy(:,i), 'g*');
+ set(h1, 'SizeData', 60);
 scatter(featx(end-1:end,i), featy(end-1:end,i), 'y*')
 l = line(featx(end-1:end,i), featy(end-1:end,i));
 l.Color = [1 0 0];
 l.LineWidth = 2;
-r = rectangle('Position', [593 159 100 75])
+r = rectangle('Position', [620 240 100 75])
 r.LineWidth = 2;
 r.EdgeColor = [1 1 0]
