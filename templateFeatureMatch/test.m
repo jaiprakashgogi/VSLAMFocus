@@ -1,7 +1,7 @@
 run('../vlg/vlfeat/toolbox/vl_setup');
 load('siftDescriptor1.mat');
 load('siftDescriptor2.mat');
-imagePath='../vlg/VSLAMFocus/im4.jpg';
+imagePath='../vlg/VSLAMFocus/im1.jpg';
 Img=imread(imagePath);
 [x1,y1]=matchTemplate(d1,Img);
 [x2,y2]=matchTemplate(d2,Img);
