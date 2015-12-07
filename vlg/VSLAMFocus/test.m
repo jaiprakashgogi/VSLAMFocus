@@ -1,3 +1,6 @@
+run ../vlfeat/toolbox/vl_setup.m
+run ../vlg/toolbox/vlg_setup.m
+
 load('3Dview.mat');
 % figure, display_points(X, 'pixelsize', 5, 'color', color(index,:)),
 % display_cameras(T, Om, K, 'frustum_scale', 0.1), box on, view(3);
