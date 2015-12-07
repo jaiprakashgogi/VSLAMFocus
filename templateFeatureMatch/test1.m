@@ -1,0 +1,14 @@
+run('../vlgWindows/vlfeat/toolbox/vl_setup');
+load('siftDescriptor1.mat');
+load('siftDescriptor2.mat');
+imagePath='../vlg/VSLAMFocus/im4.jpg';
+Img=imread(imagePath);
+[x1,y1]=matchTemplate(d1,Img);
+[x2,y2]=matchTemplate(d2,Img);
+figure;
+imshow(Img);hold on;
+%scatter(x1,y1,'y','filled');
+%scatter(x2,y2,'g','filled');
+rectangle('Position',[x1-20,y1-30,40,40],'EdgeColor','y','LineWidth',2);hold on;
+rectangle('Position',[x2-20,y2-20,40,40],'EdgeColor','g','LineWidth',2);hold on;
+line([x1,x2],[y1,y2]);hold on;
